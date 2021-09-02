@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-red" style="background-color: lime;">
+  <i>
+    <h1>Serve The Needy</h1>
+  </i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav" style="position:relative; left:800px;">
+    <h4>
+      <ul class="navbar-nav float-left">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Donators">Donators <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/NgoMain" routerLinkActive="active">Members</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/Needy">Recipents</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/AboutUs">About Us</a>
+        </li>
+      </ul>
+    </h4>
+  </div>
+</nav>
+<router-outlet></router-outlet>

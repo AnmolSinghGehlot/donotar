@@ -1,0 +1,100 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <h1 style="color: aliceblue;">List of Ngo Members</h1>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Add New Member
+    </button>
+  </div>
+</nav>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Member Id</th>
+      <th>Name</th>
+      <th>Aadhar</th>
+      <th>Gender</th>
+      <th>Address</th>
+      <th>Age</th>
+      <th>Phone No</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let ngo of ngo'>
+      <td><span>{{ngo.memberId}}</span></td>
+      <td><span>{{ngo.memberName}}</span></td>
+      <td><span>{{ngo.aadhar}}</span></td>
+      <td><span>{{ngo.gender}}</span></td>
+      <td><span>{{ngo.memberAddress}}</span></td>
+      <td><span>{{ngo.memberAge}}</span></td>
+      <td><span>{{ngo.memberPhone}}</span></td>
+      <td>
+        <button (click)="OnEdit(ngo)" type="button" class="btn btn-sm btn-primary" data-toggle="modal"
+        data-target="#exampleModal">
+        <a routerLink="/Edit/{{ngo.memberId}}">
+            <i class="fa fa-edit"></i>
+        </a>
+        </button>
+      </td>
+      <td>
+        <button (click)="deleteMember(ngo.memberId)" class="btn btn-sm btn-danger">
+          <i class="fa fa-remove"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Member Detials</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="addMember" (ngSubmit)="SaveData()">
+
+        <div class="form-group">
+          <input type="text" class="form-control" id="memberName" aria-describedby="emailHelp"
+            placeholder="Enter the name of Member" formControlName="memberName">
+        </div>
+        <div class="form-group">
+          <label for="aadhar"></label>
+          <input type="number" class="form-control" id="aadhar" placeholder="Enter Your Aadhar Number"
+            formControlName="aadhar">
+        </div>
+        <div class="form-group">
+          <label for="memberAge"></label>
+          <input type="number" class="form-control" id="memberAge" placeholder="Enter Your Age"
+            formControlName="memberAge">
+        </div>
+        <div class="form-group">
+          <label for="memberAddress"></label>
+          <input type="text" class="form-control" id="memberAddress" placeholder="Enter Your Address Detials"
+            formControlName="memberAddress">
+        </div>
+        <div class="form-group">
+          <label for="memberPhone"></label>
+          <input type="text" class="form-control" id="memberPhone" placeholder="Enter Your Phone Number"
+            formControlName="memberPhone">
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="Male">
+          <label class="form-check-label" for="Male">
+            Male
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="Female">
+          <label class="form-check-label" for="Female">
+            Female
+          </label>
+        </div>
+        <button type="button" id="cancel" class="btn btn-secondary">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
